@@ -1,0 +1,15 @@
+{
+  "name": "yks_gun",
+  "version": "1.0.1",
+  "main": "yks_gun.js",
+  "scripts": {
+    "start": "yks_gun.js"
+  },
+  "keywords": [],
+  "author": "6ix9",
+  "license": "ISC",
+  "description": "repo turkiye yks exam day counter",
+  "dependencies": {
+    "jsdom": "^26.0.0"
+  }
+}
