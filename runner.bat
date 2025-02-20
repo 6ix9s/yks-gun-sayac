@@ -36,6 +36,5 @@ if not exist "%startupFolder%\%shortcutName%" (
     echo Kisayol tek seferlik olacak sekilde kuruldu.
 )
 
-rem Programinizi buradan calistirabilirsiniz
 echo Program calistiriliyor.
 node "%~dp0yks_gun.js"
