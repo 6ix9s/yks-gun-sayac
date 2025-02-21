@@ -51,7 +51,7 @@ async function start_script() {
             const match = date.match(regex);
 
             if (!match) {
-                await send_notif(settings["err_title"], "Tarih formatı bulunamadı!");
+                await send_notif(settings["err_title"], settings["err_date"]);
                 return null;
             }
 
