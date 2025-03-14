@@ -1,7 +1,7 @@
 {
      "notif_title" : "YKS COUNTER",
      "title" : "Yks'ye Kalan Gün Sayısı!",
-     "content": "Yks'ye Kalan : ",
+     "content": "Yks'ye Kalan  ",
      "url" : "https://www.osym.gov.tr/tr,8797/takvim.html",
      "err_message": "Yks'ye Kalan Gün Sayısı Hesaplanamadı!",
      "err_day": "Belirtilen Tarih Geçmiş!",
