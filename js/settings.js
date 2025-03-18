@@ -7,7 +7,7 @@ let settings_json =
     "add_notification": "https://yks-notification.6ix9.workers.dev/"
   },
   "req_method": ["GET", "POST"],
-  "local_worker_path": "./sw.js",
+  "local_worker_path": "/js/sw.js",
   "public_vapid_key": "BNQe49T_uCXlxjgri4RKU5NScRicCmy0FqaFkdvOv7uL7h9B63BGOrCNMrB62KH6UDCdu0LsxyB3zxuMhewBZRU",
   "page_content": 
   {
