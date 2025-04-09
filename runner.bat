@@ -1,5 +1,5 @@
 @echo off
-title YKS TIMER
+title YKS SAYAC
 set batFilePath=%~dp0runner.bat
 set startupFolder=%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
 set shortcutName=yks_timer_bat.lnk
@@ -16,7 +16,7 @@ rem BurntToast modulunun yuklu olup olmadigini kontrol et
 powershell -Command "if (-not (Get-InstalledModule -Name 'BurntToast' -ErrorAction SilentlyContinue)) {exit 1} else {exit 0}"
 
 if %ERRORLEVEL% neq 0 (
-    echo BurntToast modulu yuklu degil. Lutfen yuklensin. Yukleniyor...
+    echo BurntToast modulu yuklu degil. Yukleniyor...
     
     rem PowerShell'i yonetici olarak baslatip modulu yukleyelim
     powershell -Command "Start-Process powershell -ArgumentList 'Install-Module -Name ''BurntToast'' -Force -Scope CurrentUser' -Verb RunAs"
@@ -36,5 +36,5 @@ if not exist "%startupFolder%\%shortcutName%" (
     echo Kisayol tek seferlik olacak sekilde kuruldu.
 )
 
-echo Program calistiriliyor.
+echo script çalışıyor.
 node "%~dp0yks_gun.js"
