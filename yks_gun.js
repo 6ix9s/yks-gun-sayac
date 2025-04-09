@@ -1,6 +1,9 @@
+//Powered By @6ix9s
+
 const { spawn } = require('child_process');
 
-function install_jsdom() {
+function install_jsdom() 
+{
     return new Promise((resolve, reject) => {
         console.log("🔄 jsdom bulunamadı, yükleniyor...");
 
@@ -18,7 +21,8 @@ function install_jsdom() {
     });
 }
 
-async function start_script() {
+async function runScript() 
+{
     try {
         require.resolve("jsdom");
     } catch (err) {
@@ -29,7 +33,8 @@ async function start_script() {
 
     const settings = require("./settings/setting.json");
 
-    async function get_time() {
+    async function get_time() 
+    {
         try {
             const response = await fetch(settings["url"], {
                 headers: {
@@ -51,7 +56,7 @@ async function start_script() {
             const match = date.match(regex);
 
             if (!match) {
-                await send_notif(settings["err_title"], settings["err_date"]);
+                await send_notif(settings.message["err_title"], settings.message["err_date"]);
                 return null;
             }
 
@@ -59,13 +64,16 @@ async function start_script() {
             const isoDate = `${year}-${month}-${day}T${hour}:${minute}:00`;
 
             return new Date(isoDate);
-        } catch (err) {
-            await send_notif(settings["err_title"], settings["err_message"]);
+        } catch (err) 
+        {
+            console.log(err)
+            await send_notif(settings.message["err_title"], settings.message["err_message"]);
             return null;
         }
     }
 
-    async function send_notif(title, message) {
+    async function send_notif(title, message) 
+    {
         if (process.platform !== "win32") return console.error("Bu script sadece Windows işletim sisteminde çalışır.");
 
         const script = `
@@ -76,7 +84,7 @@ async function start_script() {
             $textNodes.Item(0).AppendChild($xml.CreateTextNode("${title}")) | Out-Null
             $textNodes.Item(1).AppendChild($xml.CreateTextNode("${message}")) | Out-Null
             $toast = [Windows.UI.Notifications.ToastNotification]::new($xml)
-            $notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("${settings["notif_title"]}")
+            $notifier = [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("${settings.message["notif_title"]}")
             $notifier.Show($toast)
         `;
 
@@ -94,8 +102,9 @@ async function start_script() {
         const currentDate = new Date();
         const diffMs = targetDate - currentDate;
 
-        if (diffMs < 0) {
-            await send_notif(settings["title"], settings["err_day"]);
+        if (diffMs < 0) 
+        {
+            await send_notif(settings.message["title"], settings.message["err_day"]);
             return;
         }
 
@@ -103,8 +112,8 @@ async function start_script() {
         const diffHours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const diffMinutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
 
-        await send_notif(settings["title"], `${settings["content"]}  ${diffDays} gün, ${diffHours} saat, ${diffMinutes} dakika`);
+        await send_notif(settings.message["title"], `${settings.message["content"]}  ${diffDays} gün, ${diffHours} saat, ${diffMinutes} dakika`);
     })();
 }
 
-start_script();
+runScript();
