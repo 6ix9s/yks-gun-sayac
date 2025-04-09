@@ -1,7 +1,8 @@
 {
 
      "url" : "https://www.osym.gov.tr/tr,8797/takvim.html",
-     "query": {
+     "query": 
+     {
           "text": "YKS",
           "queryMainElements" : "#printarea > div > div",
           "findDateElement" : "div:nth-child(2)",
