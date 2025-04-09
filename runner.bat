@@ -36,5 +36,5 @@ if not exist "%startupFolder%\%shortcutName%" (
     echo Kisayol tek seferlik olacak sekilde kuruldu.
 )
 
-echo script çalışıyor.
+echo script calistiriliyor.
 node "%~dp0yks_gun.js"
