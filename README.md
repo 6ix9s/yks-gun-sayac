@@ -5,4 +5,4 @@
 > bilgisayarlarda kesin olarak çalışmakta.
 > telefonlarda deneme fırsatım olmadı.
 
-> Powered By Samet Ali 
+> Powered By sametaliylcn
